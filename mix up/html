@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MixUp Function</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>MixUp Function</h1>
+  <input type="text" id="inputStr1" placeholder="Enter first string">
+  <input type="text" id="inputStr2" placeholder="Enter second string">
+  <button onclick="mixUpStrings()">Mix Up!</button>
+  <div id="output"></div>
+  <script src="script.js"></script>
+</body>
+</html>
