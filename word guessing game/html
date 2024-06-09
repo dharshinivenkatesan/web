@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Word Guessing Game</h1>
+  <div id="game-container">
+    <p id="hidden-word"></p>
+    <p id="reward">Reward: $<span id="reward-amount">0</span></p>
+    <input type="text" id="guess-input" placeholder="Guess a letter">
+    <button id="guess-button">Guess</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
