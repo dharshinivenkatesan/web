@@ -1,0 +1,48 @@
+function getOrdinalSuffix(number) {
+    const ones = number % 10;
+    const tens = Math.floor(number / 10) % 10;
+  
+    if (tens === 1) {
+      return "th";
+    } else if (ones === 1) {
+      return "st";
+    } else if (ones === 2) {
+      return "nd";
+    } else if (ones === 3) {
+      return "rd";
+    } else {
+      return "th";
+    }
+  }
+  
+  const choicesList = document.getElementById('choicesList');
+  const choiceInput = document.getElementById('choiceInput');
+  const addButton = document.getElementById('addButton');
+  
+  let choices = []; // Array to store user-entered choices
+  
+  addButton.addEventListener('click', () => {
+    const newChoice = choiceInput.value.trim(); // Trim whitespace
+  
+    if (!newChoice) { // Check for empty input
+      alert('Please enter a choice.');
+      return;
+    }
+  
+    choices.push(newChoice); // Add choice to the array
+    choiceInput.value = ''; // Clear the input field
+  
+    updateChoicesList();
+  });
+  
+  function updateChoicesList() {
+    choicesList.innerHTML = ''; // Clear previous entries
+  
+    for (let i = 0; i < choices.length; i++) {
+      const ordinal = i + 1;
+      const suffix = getOrdinalSuffix(ordinal);
+      const listItem = document.createElement('li');
+      listItem.textContent = `My ${ordinal}${suffix} choice is ${choices[i]}.`;
+      choicesList.appendChild(listItem);
+    }
+  }
