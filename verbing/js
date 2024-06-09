@@ -1,0 +1,34 @@
+function verbing(str) {
+    // Handle empty string or strings less than 3 characters
+    if (str.length < 3) {
+      return str;
+    }
+  
+    const ending = str.slice(-3); // Get the last 3 characters
+  
+    if (ending === "ing") {
+      return str + "ly";
+    } else {
+      return str + "ing";
+    }
+  }
+  
+  function getInputValue() {
+    const inputElement = document.getElementById("inputString");
+    return inputElement.value;
+  }
+  
+  function setOutputValue(output) {
+    const outputElement = document.getElementById("output");
+    outputElement.textContent = output;
+  }
+  
+  // Add event listener after the DOM is loaded (ensures button exists)
+  window.onload = function() {
+    const verbingButton = document.getElementById('verbingButton');
+    verbingButton.addEventListener('click', function() {
+      const userInput = getInputValue();
+      const verbedString = verbing(userInput);
+      setOutputValue(verbedString);
+    });
+  };
