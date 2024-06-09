@@ -1,0 +1,48 @@
+const pluralize = (number, noun) => {
+    // Handle irregular plurals and collective nouns (consider expanding this as needed)
+    const irregularPlurals = {
+      sheep: 'sheep',
+      goose: 'geese',
+      mouse: 'mice',
+      person: 'people',
+      child: 'children',
+      deer: 'deer',
+      species: 'species',
+      series: 'series',
+      fish: 'fish',
+      information: 'information',
+      equipment: 'equipment',
+    };
+  
+    if (irregularPlurals[noun.toLowerCase()]) {
+      return `${number} ${irregularPlurals[noun.toLowerCase()]}`;
+    }
+  
+    // Handle singular and regular plurals
+    const pluralForm = number === 1 ? noun : noun.endsWith('s') || noun.endsWith('x') ? noun : noun + 's';
+    return `${number} ${pluralForm}`;
+  };
+  
+  const getInputValue = (id) => document.getElementById(id).value;
+  
+  const setOutputValue = (value) => {
+    const outputElement = document.getElementById('output');
+    outputElement.textContent = value;
+  };
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const pluralizeButton = document.getElementById('pluralizeButton');
+  
+    pluralizeButton.addEventListener('click', () => {
+      const number = parseInt(getInputValue('numberInput'));
+      const noun = getInputValue('nounInput');
+  
+      if (isNaN(number)) {
+        setOutputValue('Please enter a valid number.');
+        return;
+      }
+  
+      const pluralizedSentence = pluralize(number, noun);
+      setOutputValue(pluralizedSentence);
+    });
+  });
